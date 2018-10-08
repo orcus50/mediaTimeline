@@ -47,7 +47,7 @@ con.connect((err) => {
                 host: host,
                 name: name,
                 icon: icon,
-                count: chapters.length
+                chapters: chapters.length
             }
 
             var request = 'insert into suppliers (url,host,name,icon,contentCount) values('+
