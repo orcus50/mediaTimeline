@@ -1,0 +1,49 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <title>Name</title>
+    <meta name="description" content="Site description">
+    <meta name="author" content="Orcus">
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link href="style.css" rel="stylesheet" id="bootstrap-css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script src="md5.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+
+
+</head>
+
+<body onload="onLoad()">
+    <div class="container">
+            <div class="login-form">
+                <div class="main-div">
+                    <div class="panel">
+                        <h2>New User</h2>
+                            <p>Please choose your user and password</p>
+                        </div>
+                        <div class="form-group">
+                            <input type="username" class="form-control" id="inputUsr" name="usr" oninput="checkUsername()" placeholder="Username">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" id="inputPassword" oninput="check()" name="pss" placeholder="Password">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" id="inputPassword2" oninput="check()" placeholder="Confirm Password">
+                        </div>
+                        <div class="forgot">
+                            <a href="login.html">Already Have Account?</a>
+                        </div>
+                        <button type="submit" class="btn btn-primary" onclick="signUp()">Create</button>
+                   
+                </div>
+                <h3 style = "color:white" id = "alert"> </h3>
+    </div></div></div>
+    
+    <script src="main.js"></script>
+</body>
+</html>

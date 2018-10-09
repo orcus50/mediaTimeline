@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <title>Home</title>
+    
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+
+	<!-- Loading stuff -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="main.js"></script>
+
+</head>
+<body onload="onload()">
+    <div class = "header"> 
+        <img src = "download.jpg" style="left: 0%">
+        <p><b>Metior</b></p>
+        <input style="left: 10%" placeholder="Paste URL of media source here">
+        <button style="left: 10%" onclick="probeUrl()">Add Url</button>
+        <button style="right: 5%; position: absolute;">Login</button>
+    </div>
+    <div class = "siteInfo" id = "dropdown">
+
+        <img src = "https://images-na.ssl-images-amazon.com/images/I/41p8cWEHEAL.png"> 
+        <p id = "Name" style="top: 60px; left: 25vw;">
+            <b>Name:</b> How to summon a random manga
+        </p>
+        <p id = "Host" style="top: 90px; left: 25vw;">
+            <b>Host:</b> MangaRock.com
+        </p>
+        <p id = "Supported" style="top: 120px; left: 25vw;">
+            <b>Supported:</b> YES
+        </p>
+        <p id = "Chapters" style="top: 150px; left: 25vw;">
+            <b>Chapters:</b> 14
+        </p>
+        <p id = "URL" style="top: 210px; left: 25vw;">
+            <b>URL:</b> SomeWebsite.com
+        </p>
+
+        <button id = "add" style="left: 60vw; top: 90px;">
+                Add to list
+        </button>
+        <button id = "Cancel" class = "red" onclick="retract()" style="left: 60vw; top: 160px;">
+            Cancel
+        </button>
+    </div>
+
+    <div class = "feed" id = "feed">
+        <div id = "Date">
+            <h2 id = "d">Wednesday, March 13, 2018</h2>
+            <hr>
+        </div>
+        <div class = "Post" onmouseover="view(this);" onmouseout="notView(this);" id = "Post">            
+            <button id = "box" class = "red" style="left: 60%; top: 45%;">Drop</button>
+            <a href="http://google.com">
+                <img id = "Icon" src = "https://images-na.ssl-images-amazon.com/images/I/41p8cWEHEAL.png">
+            </a>
+            <p id = "ContentName" style="left: 12%; top: 10%;"><b>How to summon a random manga</b></p>
+            <p id = "ChapterName" style="left: 12%; top: 30%;">New Installment: <b>Chapter 5</b></p>
+            <p class = "small" id = "DirectLink" style="left: 12%; top: 60%;">MangaRock.com/The_Manga_you_wanted</p>
+            <p class = "small" id = "SiteName" style="left: 12%; top: 80%;">MangaRock.com</p>
+
+
+        </div>
+
+    </div>
+
+</body>

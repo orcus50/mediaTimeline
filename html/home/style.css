@@ -1,0 +1,116 @@
+.header{
+    position: absolute;
+    height: 50px;
+    width: 100%;
+    background-color: rgb(245, 245, 245);
+    z-index: 2;
+ }
+ .header > button{  
+    width: 200px;
+ }
+.header > * {
+    position: relative; 
+    height: 46px;
+    top: 2px;
+    bottom: 2px;
+}
+.header > p{
+    position: absolute;
+    left: 5%;
+    top: 0%;
+    font-size: 260%;
+}
+input{
+    background-color:#ffffff;
+	display:inline-block;
+	cursor:pointer;
+	color:#919191;
+	font-family:Arial;
+	font-size:13px;
+	padding:0px 24px;
+    text-decoration:none;
+    border: none; 
+    width: 50%;  
+}
+button{
+    background-color:#ffffff;
+	display:inline-block;
+	cursor:pointer;
+	color:#919191;
+	font-family:Arial;
+	font-size:13px;
+	padding:0px 24px;
+    text-decoration:none;
+    border: none;
+}
+button:hover{
+    background-color:#dffce8;
+}
+
+.siteInfo {
+    position: relative;
+    top: -250px;
+    z-index: 1;
+    width: 100%;
+    height: 300px;
+    background-color: #ebebeb;
+
+    transition-property: top;
+    transition-duration: 0.5s;
+}
+.siteInfo > img {
+    position: relative;
+    left: 15vw;
+    top: 50px;
+    width: 100px;
+    height: 200px;
+}
+.siteInfo > p {
+    position: absolute;
+    font-size: 100%;
+}
+.siteInfo > button{
+    position: absolute;
+    width: 200px;
+    height: 50px;
+}
+
+.Post{
+    position: relative;
+    margin-top:10px;
+}
+
+.feed {
+    position: absolute;
+    top: 100px;
+    width: 70%;
+    height: 400px;
+    left: 10%;
+}
+
+.Post > a > img {
+    position: relative;
+    left: 5%;
+    top: 5px;
+    width: 50px;
+    height: 100px;
+}
+.Post > p {
+    position: absolute;
+}
+.Post > .small{
+    font-size: 70%;
+}
+.Post > button{
+    position: absolute;
+    background-color: #dddddd;
+
+    transition: opacity .25s ease-in-out;
+    transition-duration: 0.9;
+    opacity: 0;
+}
+button.red:hover{
+    background-color:#fcdfdf;
+}
+
+.f{border: solid; border-color: black;}
