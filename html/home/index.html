@@ -20,53 +20,58 @@
         <p><b>Metior</b></p>
         <input style="left: 10%" placeholder="Paste URL of media source here">
         <button style="left: 10%" onclick="probeUrl()">Add Url</button>
-        <button style="right: 5%; position: absolute;">Login</button>
+        <button id = "login" style="right: 3%; position: absolute; width: 20%;" onclick="login();" onmouseover="if (logged) {this.innerHTML = 'logout';}" onmouseout="if (logged) this.innerHTML = butt;"><b>Login</b></button>
     </div>
     <div class = "siteInfo" id = "dropdown">
 
-        <img src = "https://images-na.ssl-images-amazon.com/images/I/41p8cWEHEAL.png"> 
+        <img src = "https://mir-s3-cdn-cf.behance.net/project_modules/disp/585d0331234507.564a1d239ac5e.gif"> 
         <p id = "Name" style="top: 60px; left: 25vw;">
-            <b>Name:</b> How to summon a random manga
+            <b>Name: </b>
         </p>
         <p id = "Host" style="top: 90px; left: 25vw;">
-            <b>Host:</b> MangaRock.com
+            <b>Host: </b>
         </p>
         <p id = "Supported" style="top: 120px; left: 25vw;">
-            <b>Supported:</b> YES
+            <b>Supported: </b>
         </p>
         <p id = "Chapters" style="top: 150px; left: 25vw;">
-            <b>Chapters:</b> 14
+            <b>Installments: </b>
+        </p>
+        <p id = "Latest" style="top: 180px; left: 25vw;">
+            <b>Latest: </b>
         </p>
         <p id = "URL" style="top: 210px; left: 25vw;">
-            <b>URL:</b> SomeWebsite.com
+            <b>URL: </b>
         </p>
 
-        <button id = "add" style="left: 60vw; top: 90px;">
-                Add to list
+        <button id = "add" style="left: 60vw; top: 90px;" onclick="subscribe()">
+                Subscribe
         </button>
         <button id = "Cancel" class = "red" onclick="retract()" style="left: 60vw; top: 160px;">
-            Cancel
+            Close
         </button>
     </div>
 
     <div class = "feed" id = "feed">
         <div id = "Date">
-            <h2 id = "d">Wednesday, March 13, 2018</h2>
+            <h2 id = "d"></h2>
             <hr>
         </div>
         <div class = "Post" onmouseover="view(this);" onmouseout="notView(this);" id = "Post">            
             <button id = "box" class = "red" style="left: 60%; top: 45%;">Drop</button>
             <a href="http://google.com">
-                <img id = "Icon" src = "https://images-na.ssl-images-amazon.com/images/I/41p8cWEHEAL.png">
+                <img id = "Icon" src = "">
             </a>
-            <p id = "ContentName" style="left: 12%; top: 10%;"><b>How to summon a random manga</b></p>
-            <p id = "ChapterName" style="left: 12%; top: 30%;">New Installment: <b>Chapter 5</b></p>
-            <p class = "small" id = "DirectLink" style="left: 12%; top: 60%;">MangaRock.com/The_Manga_you_wanted</p>
-            <p class = "small" id = "SiteName" style="left: 12%; top: 80%;">MangaRock.com</p>
-
+            <p id = "ContentName" style="left: 16%; top: 10%;"><b></b></p>
+            <p id = "ChapterName" style="left: 16%; top: 30%;">New Installment: <b></b></p>
+            <p class = "small" id = "DirectLink" style="left: 16%; top: 60%;"></p>
+            <p class = "small" id = "SiteName" style="left: 16%; top: 80%;"></p>
+        
+        </div>
+        
 
         </div>
-
+        
     </div>
 
 </body>

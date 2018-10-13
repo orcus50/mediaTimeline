@@ -1,18 +1,20 @@
 .header{
     position: absolute;
-    height: 50px;
+    height: 8vh;
     width: 100%;
     background-color: rgb(245, 245, 245);
     z-index: 2;
+    font-size: 1vw;
  }
  .header > button{  
-    width: 200px;
+    width: 10%;
  }
 .header > * {
     position: relative; 
-    height: 46px;
-    top: 2px;
-    bottom: 2px;
+    height: 90%;
+    top: 5%;
+    bottom: 5%;
+    font-size: 1vw;
 }
 .header > p{
     position: absolute;
@@ -49,7 +51,7 @@ button:hover{
 
 .siteInfo {
     position: relative;
-    top: -250px;
+    top: -300px;
     z-index: 1;
     width: 100%;
     height: 300px;
@@ -60,10 +62,11 @@ button:hover{
 }
 .siteInfo > img {
     position: relative;
-    left: 15vw;
+    left: 10vw;
     top: 50px;
-    width: 100px;
-    height: 200px;
+    width: 200px;
+    max-height: 200px;
+    vertical-align:middle;
 }
 .siteInfo > p {
     position: absolute;
@@ -78,6 +81,7 @@ button:hover{
 .Post{
     position: relative;
     margin-top:10px;
+    padding: 10px 10px;
 }
 
 .feed {
@@ -91,8 +95,7 @@ button:hover{
 .Post > a > img {
     position: relative;
     left: 5%;
-    top: 5px;
-    width: 50px;
+    width: 70px;
     height: 100px;
 }
 .Post > p {
@@ -111,6 +114,16 @@ button:hover{
 }
 button.red:hover{
     background-color:#fcdfdf;
+}#footer {
+    clear: both;
+    position: relative;
+    z-index: 10;
+    height: 3em;
+    margin-top: -3em;
+}
+
+.Post:hover{
+    background-color:#f1f1f1;
 }
 
 .f{border: solid; border-color: black;}

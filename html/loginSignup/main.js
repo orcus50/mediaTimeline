@@ -43,7 +43,7 @@ function signUp(){
         data: { user: document.getElementById("inputUsr").value, pass: passhash }, 
         success: function(d){
             if (d == ">Account_Created")
-                window.location = '../index.html?user='+document.getElementById("inputUsr").value+"&pass="+passhash;
+                window.location = '../home/index.html?user='+document.getElementById("inputUsr").value+"&password="+passhash;
             else
                 document.getElementById("alert").innerHTML = "Username Taken";
         }
@@ -63,7 +63,7 @@ function login(){
         data: { user: document.getElementById("inputUsr").value, pass: passhash},
         success: function(d){
             if (d == "Valid"){
-                window.location = '../index.html?user='+document.getElementById("inputUsr").value+"&pass="+passhash;
+                window.location = '../home/index.html?user='+document.getElementById("inputUsr").value+"&password="+passhash;
             }
             else{
                 document.getElementById("alert").innerHTML = "Wrong password";
@@ -73,6 +73,7 @@ function login(){
       });
 
 }
+
 
 function valid(){
     if (document.getElementById("inputPassword").value.length <= 3){

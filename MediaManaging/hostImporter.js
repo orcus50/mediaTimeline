@@ -37,13 +37,6 @@ con.connect((err) => {
     rp(options)
         .then((site) => {
 
-            if (hosts[host]==undefined){
-                console.log({
-                    valid: false
-                })
-                process.exit();
-            }
-
             //Data
             var chapters = hosts[host].scrapeChapters(site);
             var name = hosts[host].scrapeName(site);
@@ -55,17 +48,16 @@ con.connect((err) => {
                 name: name,
                 icon: icon,
                 chapters: chapters.length,
-                recentChapter: chapters[0],
-                valid: true
+                names: chapters
             }
-/*
+
             var request = 'insert into suppliers (url,host,name,icon,contentCount) values('+
                 '\''+data.url+'\','+
                 '\''+data.host+'\','+
                 '\''+data.name+'\','+
                 '\''+data.icon+'\','
                     +data.count+")";
-*/
+
             con.query(request);
             console.log(data);
             process.exit();
