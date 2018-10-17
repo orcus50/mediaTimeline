@@ -37,9 +37,6 @@ function getHosts() {
                 return cleanText(site('._3kDZW').text());
             },
             scrapeIcon: function(site){
-                
-                var icon = site(".xDVZZ._2KER_").children()['0'];
-                console.log(icon);
                 return "https://mangarock.com/svg/mr_logo_beta.svg";
             }
              

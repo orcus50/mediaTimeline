@@ -56,6 +56,7 @@ if (err) throw err;
                     //If its the last connection, end the program after a sec to allow last requests
                     count --;
                     if (count == 0){
+                        con.query("DELETE FROM content  WHERE time < NOW() - INTERVAL 7 DAY;")
                         setTimeout(process.exit, 1000);
                     }
             });

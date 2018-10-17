@@ -31,7 +31,10 @@
     if ($result->num_rows == 1) { 
 
         $command = "node ../hostImporter.js ".$_POST['url'];
+        echo $command."\n";
         exec($command , $output , $return_var);
+
+        echo $output[1]."\n";
 
         $host = explode("?=", $output[1])[1];
         $name = explode("?=", $output[2])[1];
@@ -52,7 +55,7 @@
         //Get id of media
         $quer = "SELECT * from suppliers where url = '".$url."';";
         $result = $conn->query($quer);
-
+        echo $quer;
         while ($row = mysqli_fetch_assoc($result)) 
         {
             foreach ($row as $col => $val) {
@@ -69,6 +72,7 @@
             //Subscribe to this media yourself
             $quer2 = "insert into subscriptions (user, supplierID) values ('".$user."', '".$sub."');";
             $result = $conn->query($quer2);
+            echo $quer2;
         }
     }
 

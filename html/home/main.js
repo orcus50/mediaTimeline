@@ -1,16 +1,20 @@
-var date, post, logged, butt, subbed;
+var date, post, sub, logged, butt, subbed;
 
 function onload(){
 
     var d = document.getElementById("Date");
     var p = document.getElementById("Post");
+    var s = document.getElementById("sub");
 
     date = d.cloneNode(true);
     post = p.cloneNode(true);
+    sub = s.cloneNode(true);
     
     d.parentElement.removeChild(d);
     p.parentElement.removeChild(p);
+    s.parentElement.removeChild(s);
 
+    
     checkLogin();
 
 }
@@ -41,7 +45,10 @@ function checkLogin(){
       });
 }
 
-function scrapeUrl(){  
+function scrapeUrl(){ 
+    subbed = false; 
+    
+    $('.siteInfo > #add')[0].innerHTML = "...";
     $.ajax({
         type: 'POST',
         url: 'scrape.php',
@@ -60,8 +67,11 @@ function scrapeUrl(){
                 $('.siteInfo > #URL')[0].innerHTML = output.url;
 
                 if (output.subbed == "yes"){
-                    $('.siteInfo > #add')[0].innerHTML = "Drop";
+                    $('.siteInfo > #add')[0].innerHTML = "Subbed!";
                     subbed = true;
+                }
+                else{
+                    $('.siteInfo > #add')[0].innerHTML = "Subscribe";
                 }
                 if (!logged)
                     $('.siteInfo > #add')[0].innerHTML = "Login to add";
@@ -78,12 +88,19 @@ function posts(){
         data: { user: params.user, pass: params.password}, 
         success: function(output){
             
+
             var date = "";
 
             var o = output.split("\n");
             var posts = [];
 
-            for (var i = 0; i < o.length; i+=6){
+            //Gets subs
+            var subs = o[0].split("=|=");
+            for (var i = 0; i< subs.length;i++){
+                if (subs[i] != "")
+                    addSubscription(subs[i]);
+            }
+            for (var i = 1; i < o.length; i+=6){
 
                 var postData = {};
 
@@ -103,11 +120,24 @@ function posts(){
             }
         }
       });
+      
+}
+
+function drop(elem){
+    var text = elem.nextSibling.nextSibling.innerText;
+    $.ajax({
+        type: 'POST',
+        url: 'drop.php',
+        data: { user: params.user, pass: params.password, name: text}, 
+        success: function(output){
+            //console.log(output);
+            location.reload();
+        }
+    });
 }
 
 function subscribe(){
     if (!logged) {
-        
         window.location = "../loginSignup/login.html";
         return;
     }
@@ -125,7 +155,7 @@ function subscribe(){
             data: { user: params.user, pass: params.password, url:$('input')[0].value}, 
             success: function(o){
                 console.log(o);
-                $('.siteInfo > #add')[0].innerHTML = "Drop";
+                $('.siteInfo > #add')[0].innerHTML = "Subbed!";
             }
           });
 
@@ -203,6 +233,12 @@ function addPost(imgURL, name, chapter, url, site){
     $("#Post>a>img")[0].src = imgURL;
 
     newPost.id = "posted";
+}
+
+function addSubscription(name){
+    var nextSub = sub.cloneNode(true);
+    nextSub.childNodes[3].innerText = name;
+    document.getElementById("subs").appendChild(nextSub);
 }
 
 /*

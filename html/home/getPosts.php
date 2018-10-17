@@ -34,6 +34,7 @@
 
         $values = "";
         $num = 0;
+        $subs = "";
 
         while ($row = mysqli_fetch_assoc($result)) 
         {
@@ -45,9 +46,19 @@
                 else if ($col == "supplierID" and $num == 1){
                     $values = $values." or supplierID = ".$val;
                 }
+
+                //Get supplier sub name
+                $quer2 = "SELECT name from suppliers where id = ".$val.";";
+                $result2 = $conn->query($quer2);
+                while ($row2 = mysqli_fetch_assoc($result2)) 
+                    foreach ($row2 as $col2 => $val2) 
+                        if ($col2 == "name")
+                            $subs = $subs."=|=".$val2;
+                    
+                
             }
         }
-        
+        echo $subs."\n";
         $quer = "SELECT * from content where ".$values." order by time desc;";
         $result = $conn->query($quer."\n");
 

@@ -58,11 +58,11 @@
             <hr>
         </div>
         <div class = "Post" onmouseover="view(this);" onmouseout="notView(this);" id = "Post">            
-            <button id = "box" class = "red" style="left: 60%; top: 45%;">Drop</button>
+            <button id = "box" class = "red" style="left: 60%; top: 45%;" onclick="drop(this);">Drop</button>
+            <p id = "ContentName" style="left: 16%; top: 10%;" ><b></b></p>
             <a href="http://google.com">
                 <img id = "Icon" src = "">
             </a>
-            <p id = "ContentName" style="left: 16%; top: 10%;"><b></b></p>
             <p id = "ChapterName" style="left: 16%; top: 30%;">New Installment: <b></b></p>
             <p class = "small" id = "DirectLink" style="left: 16%; top: 60%;"></p>
             <p class = "small" id = "SiteName" style="left: 16%; top: 80%;"></p>
@@ -72,6 +72,22 @@
 
         </div>
         
+    </div>
+
+    <div class = "subs" id = "subs">
+        <div id = "SubTitle" style="position: relative; left: 20%;">
+            <h3 id = "s">
+                Subscriptions
+            </h2>
+        </div>
+        <hr>
+        <div class = "SubName" id = "sub" onmouseover="view(this);" onmouseout="notView(this);">
+            <button id = "box" class = "red subButton" style="left: 5%; width: 7%;" onclick="drop(this);">Drop</button>
+            <p id = "ContentName" style="position: absolute; left: 15%;">
+                
+            </p>
+           
+        </div>
     </div>
 
 </body>
