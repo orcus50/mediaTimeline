@@ -31,7 +31,10 @@ function getHosts() {
                     });
                 });
             
-                return chapters;
+                return {
+                    chapters: chapters,
+                    count: chapters.length
+                };
             },
             scrapeName: function(site){
                 return cleanText(site('._3kDZW').text());
@@ -43,27 +46,83 @@ function getHosts() {
         },
          
         /*
-            FANFOX
+            RoyalRoad
         */
-        "fanfox.net": {
+       "www.royalroad.com" : {
 
-            formatURL: function(url){
+        formatURL: function(url){
 
-                return url;
-            
-            },
-            scrapeChapters: function(site){
+            return url;
+        
+        },
+        scrapeChapters: function(site, host){
 
-                var chapters = [];
+            var chapters = [];
 
-                site('.chlist').find("div > h4, div > h3").each(function(i, elem){
-                    chapters.push(cleanText(site(this).text()));
+            site('tbody > tr').each(function(i, elem){
+
+                elem = elem.children[1].children[1];
+
+                chapters.push({
+                    name: cleanText(elem.children[0].data),
+                    link: host + elem.attribs['href']
                 });
-            
-                return chapters;
-            }
-             
+            });
+        
+            return {
+                chapters: chapters.reverse(),
+                count: chapters.length
+            };
+        },
+        scrapeName: function(site){
+            return cleanText(site('h1').text());
+        },
+        scrapeIcon: function(site){ 
+            return site('.thumbnail')['0'].attribs["src"];
         }
+         
+        },
+        /*
+             Web Toons
+        */
+        "www.webtoons.com" : {
+
+        formatURL: function(url){
+
+            return url;
+
+        },
+        scrapeChapters: function(site, host){
+
+            var chapters = [];
+
+            site('#_listUl > li').each(function(i, elem){
+
+                elem = elem.children[1];
+
+                chapters.push({
+                    name: cleanText(elem.children[3].children[0].children[0].data),
+                    link: elem.attribs['href'].substr(8)
+                });
+
+            });
+
+
+            count = parseInt(site('.tx')[0].children[0].data.substr(1));
+
+            return {
+                chapters: chapters,
+                count: count
+            };
+        },
+        scrapeName: function(site){
+            return cleanText(site('h1').text());
+        },
+        scrapeIcon: function(site){ 
+            return site('.detail_header > .thmb > img')['0'].attribs["src"];
+        }
+        
+        },
     }
 }
 

@@ -39,8 +39,8 @@ var options = {
             console.log("host?="+host);
             console.log("name?="+name);
             console.log("icon?="+icon);
-            console.log("chapters?="+chapters.length);
-            console.log("recentChapters?="+chapters[0].name);
+            console.log("chapters?="+chapters.count);
+            console.log("recentChapters?="+chapters.chapters[0].name);
             console.log("valid?="+true);
 
             process.exit();

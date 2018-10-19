@@ -24,6 +24,8 @@ if (err) throw err;
     con.query("select * from suppliers", function (err, result) {
         if (err) throw err;
 
+        con.query("DELETE FROM content  WHERE time < NOW() - INTERVAL 7 DAY;")
+
         //Look through each row in suppliers
         result.forEach(function(row) {
             
@@ -38,44 +40,33 @@ if (err) throw err;
             rp(options)
                 .then((site) => {
 
-                    count ++;
-
                     //Get the chapters
                     var chapters = hosts[row.host].scrapeChapters(site, row.host);
 
                     //Is there a new one out?
-                    if (chapters.length != row.contentCount){
+                    if (chapters.count != row.contentCount){
 
-                        for (var i=0; i< chapters.length - row.contentCount; i++){
-                            insertContent(chapters[i].link, chapters[i].name, row.id);
+                        for (var i=0; i< chapters.count - row.contentCount; i++){
+                            insertContent(chapters.chapters[i].link, chapters.chapters[i].name, row.id);
                         }
 
-                        con.query("update suppliers set contentCount = "+chapters.length+" where url = '"+row.url+"';");
+                        con.query("update suppliers set contentCount = "+chapters.count+" where url = '"+row.url+"';",function(err, rows, fields) {
+                            
+                        });
                     }
+                    else{
 
-                    //If its the last connection, end the program after a sec to allow last requests
-                    count --;
-                    if (count == 0){
-                        con.query("DELETE FROM content  WHERE time < NOW() - INTERVAL 7 DAY;")
-                        setTimeout(process.exit, 1000);
-                    }
+                     }
             });
-            
-        });
 
+
+        });
 
     });
 
 });
 
 function insertContent (url, name, supplierID){
-    con.query("insert into content (url,name,supplierID) values ('"+url+"', '"+name+"', '"+supplierID+"');", function(err, result)
-    {/*
-        if (err) 
-            Console.log("err");
-        else
-            console.log("inserted content "+name+" to have "+url);*/
-
-    });
+    con.query("insert into content (url,name,supplierID) values ('"+url+"', '"+name+"', '"+supplierID+"');");
 }
   

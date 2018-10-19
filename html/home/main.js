@@ -81,6 +81,9 @@ function scrapeUrl(){
       });
 }
 
+/**
+ * Gets content from content database by connecting to getPosts.php.
+ */
 function posts(){
     $.ajax({
         type: 'POST',
@@ -100,6 +103,7 @@ function posts(){
                 if (subs[i] != "")
                     addSubscription(subs[i]);
             }
+
             for (var i = 1; i < o.length; i+=6){
 
                 var postData = {};
